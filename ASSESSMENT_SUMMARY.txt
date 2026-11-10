@@ -1,0 +1,2 @@
+Booking Evaluation v2 — M4 Django templates, M5 ORM, M6 DRF, M7 JSON
+4 TODO; 16 tests; 20 points; 75–90 min advised.
