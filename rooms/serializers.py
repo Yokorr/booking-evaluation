@@ -1,8 +1,11 @@
-"""TODO 1 — Implement a read-only Room ModelSerializer."""
 from rest_framework import serializers
-from rooms.models import Room
+from .models import Room
+
 
 class RoomSerializer(serializers.ModelSerializer):
-    # TODO 1 (5 points): add the related city field and Meta configuration.
-    # Expose exactly code, name, capacity, location_city, all read-only.
-    pass
+    location_city = serializers.CharField(source='location.city', read_only=True)
+
+    class Meta:
+        model = Room
+        fields = ['code', 'name', 'capacity', 'location_city']
+        read_only_fields = ['code', 'name', 'capacity', 'location_city']

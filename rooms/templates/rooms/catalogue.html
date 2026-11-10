@@ -8,11 +8,16 @@
 <body>
     <main>
         <h1>Room catalogue</h1>
-        <!-- TODO 0 (M4): Display each room using Django Template Language.
-             Use the `rooms` context variable and display room.code,
-             room.name, room.capacity and room.location.city.
-             When rooms is empty, show exactly: No rooms available.
-             Do not hard-code fixture values or use JavaScript. -->
+        {% for room in rooms %}
+            <article class="room-card">
+                <h2>{{ room.name }}</h2>
+                <p>Code: {{ room.code }}</p>
+                <p>Capacity: {{ room.capacity }} seats ({{ room.capacity }})</p>
+                <p>City: {{ room.location.city }}</p>
+            </article>
+        {% empty %}
+            <p>No rooms available.</p>
+        {% endfor %}
     </main>
 </body>
 </html>
